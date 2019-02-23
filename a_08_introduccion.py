@@ -104,6 +104,25 @@ df_ciudades = pd.DataFrame([
         ciudades_dos
         ])
 
+df_ciudades_2 = pd.DataFrame([
+        ("Quito",8000),
+        ("Guayaquil",10000),
+        ("Loja",2000),
+        ("Ibarra",4000),
+        ],
+        columns=["Ciudad","Valor"])
+
+df_ciudades_3 = pd.DataFrame([
+        ("Quito",8000),
+        ("Guayaquil",10000),
+        ("Loja",2000),
+        ("Ibarra",4000),
+        ],
+        columns=["Ciudad","Valor"])
+
+df_ciudades_3.set_index("Ciudad")
+df_ciudades_3.set_index("Ciudad", 
+                        inplace=True)
 
 
 
