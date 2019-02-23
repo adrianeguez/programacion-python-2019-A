@@ -9,7 +9,7 @@ Created on Fri Feb 22 19:33:20 2019
 
 import numpy as np
 import pandas as pd
-
+import matplotlib.pyplot as plt
 
 directorio = "./data/artwork_data.csv"
 
@@ -36,20 +36,54 @@ df_completo.to_pickle(directorio_guardado)
 df_completo_de_pickle = pd.read_pickle(
         directorio_guardado)
 
+df_completo["Nueva Columna"] = 0
+
+df_artistas = df_completo["artist"]
 
 
+artistas = pd.unique(df_artistas) # DataFrame
+len(df_completo)
+len(artistas)
 
 
+df_artistas_vc = df_artistas.value_counts()
 
 
+df_completo["medium"].value_counts()
+
+df_group_artista = df_completo.groupby("artist")
+
+type(df_group_artista)
+
+for name, group_fd in df_group_artista:
+    print(name)
+    print(group_fd)
 
 
+df_completo['acquisitionYear'].mean() 
 
 
+df_completo.tail(10)
+
+df_completo.loc[1035,'artist']
+
+df_completo.iloc[0:100,:]
 
 
+df_completo.loc[:,'width'] = pd.to_numeric(
+        df_completo['width'], errors = 'coerce')
+
+df_completo.loc[:,'height'] = pd.to_numeric(
+        df_completo['height'], errors = 'coerce')
+
+df_completo["area"] = df_completo["width"] * df_completo["height"] 
+                        
 
 
+plt.plot(df_completo["height"] )
+
+df_group_artista.agg(np.min)
+df_group_artista.min()
 
 
 
